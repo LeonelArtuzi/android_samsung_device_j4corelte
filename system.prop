@@ -1,0 +1,79 @@
+#
+# from device/samsung/j4corelte/system.prop
+#
+#
+# system.prop for msm8937_32
+#
+
+ro.arch=msm8937_32
+#ro.kernel.qemu=1
+#ro.kernel.qemu.gles=2
+#persist.demo.hdmirotationlock=false
+
+#Enable DSDS
+persist.radio.multisim.config=dsds
+
+#enable SW Navigation bar
+#qemu.hw.mainkeys=0
+
+#Enable S.LSI USB settings
+dev.usbsetting.embedded=on
+
+#network type
+#ro.telephony.default_network=9
+
+# Enable Delay Service Restart
+ro.vendor.qti.am.reschedule_service=true
+
+#RILD debug level setting
+ro.debug_level=0x494d
+
+# read DS/SS property
+import /efs/factory.prop
+ro.multisim.simslotcount=2
+
+# Specify a vendor RIL and a device node
+rild.libargs=-d /dev/umts_ipc0
+rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+
+# Bservice Propogation Enable
+#ro.config.bservice_enable=true
+
+#LMKD
+ro.lmk.kill_heaviest_task=true
+ro.lmk.critical_upgrade=false
+ro.lmk.upgrade_pressure=100
+ro.lmk.critical=100
+ro.lmk.medium=800
+ro.lmk.multitask_adj_skip=true
+ro.lmk.downgrade_pressure=100
+
+# FHA Tune
+ro.config.tune_fha=true
+ro.config.bg_apps_limit=18
+
+# Force Trim Half Cached apps
+ro.config.force_trim=true
+
+#ConsumerIR
+config.disable_consumerir=true
+
+
+#Graphics properties
+#debug.sf.enable_hwc_vds=1
+debug.sf.hw=1
+debug.sf.latch_unsignaled=1
+debug.egl.hw=1
+debug.gralloc.enable_fb_ubwc=1
+sdm.debug.disable_skip_validate=1
+
+#propery to enable VDS WFD solution
+#persist.hwc.enable_vds=1
+
+# Property to enable display default color mode
+#vendor.display.enable_default_color_mode=1
+
+#Phone early start enable flag
+sys.config.phone_start_early=true
+
+#

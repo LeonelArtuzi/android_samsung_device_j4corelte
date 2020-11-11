@@ -1,0 +1,15 @@
+allow hwservicemanager halclientdomain:binder { call transfer };
+allow hwservicemanager halclientdomain:dir { search };
+allow hwservicemanager halclientdomain:file { read open };
+allow hwservicemanager halclientdomain:process { getattr };
+allow halclientdomain hwservicemanager_prop:file { ioctl read getattr lock map open };
+allow halclientdomain hidl_manager_hwservice:hwservice_manager { find };
+allow halserverdomain hwservicemanager:binder { call transfer };
+allow hwservicemanager halserverdomain:binder { call transfer };
+allow hwservicemanager halserverdomain:dir { search };
+allow hwservicemanager halserverdomain:file { read open };
+allow hwservicemanager halserverdomain:process { getattr };
+allow hwservicemanager hwservicemanager:file { read write getattr };
+allow hwservicemanager tmpfs:dir { getattr search };
+allow hwservicemanager hidl_manager_hwservice:hwservice_manager { add find };
+allow hwservicemanager hidl_base_hwservice:hwservice_manager { add };

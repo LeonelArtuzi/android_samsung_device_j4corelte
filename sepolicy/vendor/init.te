@@ -1,0 +1,15 @@
+allow init healthd_exec:file { read getattr map execute open };
+allow init healthd:process { transition }; 
+allow init healthd:process { siginh rlimitinh };
+allow init hwservicemanager_exec:file { read getattr map execute open };
+allow init hwservicemanager:process { transition };
+allow init hwservicemanager:process { siginh rlimitinh };
+allow init sysfs_devices_system_cpu:dir write;
+allow init sysfs:file setattr;
+allow init hal_wifi_supplicant_default:process noatsecure;
+
+allow init sysfs_batteryinfo:file setattr;
+allow init vendor_file:file execute_no_trans;
+allow init hidl_base_hwservice:hwservice_manager add;
+
+
