@@ -310,6 +310,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Lights
 PRODUCT_PACKAGES += \
+    lights.msm8937.so \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
