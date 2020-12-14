@@ -353,7 +353,7 @@
             - config_screenBrightnessBacklight must be defined
          This array should have size one greater than the size of the config_autoBrightnessLevels
          array. The brightness values must be non-negative and non-decreasing. This must be
-         overridden in platform specific overlays -->
+         overridden in platform specific overlays 
     <array name="config_autoBrightnessDisplayValuesNits">
         <item>10</item>
         <item>12</item>
@@ -392,20 +392,20 @@
         <item>675</item>
         <item>700</item>
     </array>
-    <array name="config_autoBrightnessKeyboardBacklightValues" />
+    <array name="config_autoBrightnessKeyboardBacklightValues" />-->
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
          in the config_autoBrightnessLevels array.  This array should have size one greater
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>14</item>
+        <item>10</item>
         <item>20</item>
-        <item>38</item>
-        <item>55</item>
-        <item>95</item>
-        <item>142</item>
-        <item>185</item>
+        <item>40</item>
+        <item>70</item>
+        <item>110</item>
+        <item>160</item>
+        <item>200</item>
         <item>255</item>
         <item>256</item>
     </integer-array>
@@ -419,14 +419,13 @@
          Zone N + 1     array[N] <= LUX < infinity
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>8</item>
-        <item>15</item>
-        <item>25</item>
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
         <item>100</item>
-        <item>500</item>
-        <item>1500</item>
-        <item>5000</item>
-        <item>20000</item>
+        <item>150</item>
+        <item>210</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
@@ -436,12 +435,7 @@
          the screen brightness is recalculated. See the config_dynamicHysteresisLuxLevels
          description for how the constraint value is chosen. -->
     <integer-array name="config_dynamicHysteresisBrightLevels">
-        <item>5000</item>
-        <item>3000</item>
-        <item>3000</item>
-        <item>4000</item>
-        <item>3000</item>
-        <item>3000</item>
+        <item>100</item>
     </integer-array>
 
     <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
@@ -449,15 +443,10 @@
          config_dynamicHysteresisLuxLevels. The darkening threshold is calculated as
          lux * (1.0f - CONSTRAINT_VALUE). When the current lux is lower than this threshold,
          the screen brightness is recalculated. See the config_dynamicHysteresisLuxLevels
-         description for how the constraint value is chosen. -->
+         description for how the constraint value is chosen.-->
     <integer-array name="config_dynamicHysteresisDarkLevels">
-        <item>1000</item>
-        <item>500</item>
-        <item>900</item>
-        <item>700</item>
-        <item>500</item>
-        <item>500</item>
-    </integer-array>
+        <item>200</item>
+    </integer-array> 
 
     <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
          values by calculating the index to use for lookup and then setting the constraint value
@@ -468,14 +457,14 @@
          condition                      calculated index
          value < lux[0]                 0
          lux[n] <= value < lux[n+1]     n+1
-         lux[MAX] <= value              MAX+1 -->
+         lux[MAX] <= value              MAX+1 
     <integer-array name="config_dynamicHysteresisLuxLevels">
         <item>30</item>
         <item>100</item>
         <item>1000</item>
         <item>10000</item>
         <item>100000</item>
-    </integer-array>
+    </integer-array>-->
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
@@ -492,16 +481,16 @@
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
          values in the config_screenBrightnessNits array.
-         This array should be equal in size to config_screenBrightnessBacklight. -->
+         This array should be equal in size to config_screenBrightnessBacklight. 
     <integer-array name="config_screenBrightnessBacklight">
         <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>      
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>      
         <item>8</item>
         <item>9</item>
         <item>10</item>
@@ -761,23 +750,23 @@
         <item>415</item>
         <item>431</item>
         <item>447</item>
-    </integer-array>
+    </integer-array>-->
 
     <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
          values in the config_screenBrightnessBacklight array.  On OLED displays these  values
          should be measured with an all white image while the display is in the fully on state.
          Note that this value should *not* reflect the maximum brightness value for any high
          brightness modes but only the maximum brightness value obtainable in a sustainable manner.
-         This array should be equal in size to config_screenBrightnessBacklight -->
+         This array should be equal in size to config_screenBrightnessBacklight
     <array name="config_screenBrightnessNits">
-        <item>2</item>
-        <item>2.2</item>
-        <item>2.3</item>
-        <item>2.5</item>
-        <item>2.6</item>
-        <item>2.8</item>
-        <item>2.9</item>
-        <item>3</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
         <item>3.2</item>
         <item>3.3</item>
         <item>3.5</item>
@@ -1037,7 +1026,7 @@
         <item>650</item>
         <item>675</item>
         <item>700</item>
-    </array>
+    </array> -->
     <integer-array name="config_screenBrightnessRangeForClearView">
         <item>255</item>
         <item>256</item>

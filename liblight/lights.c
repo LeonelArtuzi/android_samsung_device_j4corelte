@@ -18,7 +18,7 @@
 
 // #define LOG_NDEBUG 0
 
-#include <cutils/log.h>
+#include <log/log.h>
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -32,6 +32,7 @@
 #include <sys/types.h>
 
 #include <hardware/lights.h>
+#define MIN_BRIGHTNES_LCD 4
 
 /******************************************************************************/
 
@@ -121,9 +122,14 @@ set_light_backlight(struct light_device_t* dev,
         return -1;
     }
     pthread_mutex_lock(&g_lock);
-    err = write_int(LCD_FILE, brightness);
+    if (brightness <= MIN_BRIGHTNES_LCD){
+        brightness = MIN_BRIGHTNES_LCD;
+        err = write_int(LCD_FILE, brightness);
+    }else{
+        err = write_int(LCD_FILE, brightness);
+    }
     pthread_mutex_unlock(&g_lock);
-    return err;
+        return err;
 }
 
 static int
