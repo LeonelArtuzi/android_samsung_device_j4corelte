@@ -1,0 +1,10 @@
+libqti-perfd-client.so
+libadsprpc.so
+libcdsprpc.so
+libsdsprpc.so
+libqvrservice_client.so
+libandroid_ssrm.so
+libMcClient.so
+libMcRegistry.so
+libQSEEComAPI.so
+libOpenCL.so

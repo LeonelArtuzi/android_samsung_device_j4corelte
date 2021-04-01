@@ -1,0 +1,18 @@
+#
+# from device/samsung/j4corelte/system.prop
+#
+#
+# system.prop for msm8937_32
+#
+# read DS/SS property
+import /efs/factory.prop
+ro.multisim.simslotcount=2
+
+# Specify a vendor RIL and a device node
+#rild.libargs=-d /dev/umts_ipc0
+#rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+
+
+
+
+
