@@ -43,19 +43,25 @@ PRODUCT_PACKAGES += \
     libaacwrapper \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessing
+    libqcomvoiceprocessing \
+    libaudio-resampler \
+    tinymix
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
     android.hardware.audio@2.0-service \
-    android.hardware.audio@4.0 \
-    android.hardware.audio@4.0-impl \
-    android.hardware.audio.common@4.0 \
-    android.hardware.audio.common@4.0-util \
     android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@4.0 \
-    android.hardware.audio.effect@4.0-impl \
-    android.hardware.soundtrigger@2.0-impl
+    android.hardware.audio.effect@2.0 \
+    android.hardware.soundtrigger@2.0-impl \
+    android.hardware.broadcastradio@1.0
+    
+    
+#    android.hardware.audio@4.0 \
+#    android.hardware.audio@4.0-impl \
+#    android.hardware.audio.common@4.0 \
+#    android.hardware.audio.common@4.0-util \
+    
+#    android.hardware.audio.effect@4.0-impl \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
@@ -129,18 +135,25 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8937 \
-    gralloc.msm8937 \
     memtrack.msm8937 \
     liboverlay \
     libdisplayconfig \
     libqdMetaData.system \
     libjni_livedisplay \
-    libtinyxml 
+    libtinyxml2 \
+    libtinyxml \
+    vendor.display.config@1.1_vendor \
+    vendor.display.config@1.1
 
+#    hwcomposer.msm8937 \
+#    gralloc.msm8937 \
 	
 # Ambient display
 PRODUCT_PACKAGES += \
     msm8917Doze
+    
+#PRODUCT_PACKAGES += \
+#   AdvancedDisplay
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
@@ -193,13 +206,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
     $(LOCAL_PATH)/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
     $(LOCAL_PATH)/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
-    $(LOCAL_PATH)/gps/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
     $(LOCAL_PATH)/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf
 	
-PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl \
-    android.hardware.gnss@1.0-impl-qti \
-    android.hardware.gnss@1.0-service-qti
+	
+#    $(LOCAL_PATH)/gps/lowi.conf:$(TARGET_COPY_OUT_VENDOR)/etc/lowi.conf \
+#PRODUCT_PACKAGES += \
+#    android.hardware.gnss@1.0-impl \
+#    android.hardware.gnss@1.0-impl-qti \
+#    android.hardware.gnss@1.0-service-qti
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -212,24 +226,26 @@ PRODUCT_PACKAGES += \
 #    ipacm 
 #    IPACM_cfg.xml
 
+#feito
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/IPACM_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/IPACM_cfg.xml
-
+#feito
 # IRQ
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
-
+#feito
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config \
     $(LOCAL_PATH)/configs/sec_config_oem:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config_oem
-
+#feito
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/ft5x06_ts.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ft5x06_ts.kl \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/synaptics_rmi4_i2c.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_rmi4_i2c.kl \
     $(LOCAL_PATH)/keylayout/synaptics_dsx.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/synaptics_dsx.kl
+
 
 # Low power Whitelist
 PRODUCT_COPY_FILES += \
@@ -290,9 +306,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom
-
-PRODUCT_PACKAGES += \
+    power.qcom \
     android.hardware.power@1.1-service-qti
 
 PRODUCT_COPY_FILES += \
@@ -324,8 +338,8 @@ PRODUCT_PACKAGES += \
 
 # QTI
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-qti.xml \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml 
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml \
+
 
 
 # Offline Charger
@@ -336,8 +350,8 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.class_late.sh \
     init.class_main.sh \
+    init.crda.sh \
     init.mdm.sh \
     init.qcom.class_core.sh \
     init.qcom.coex.sh \
@@ -345,23 +359,25 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.efs.sync.sh \
     init.qcom.post_boot.sh \
+    init.qcom.sdio.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
+    init.qcom.syspart_fixup.sh \
     init.qcom.usb.sh \
-    init.qti.can.sh \
+    init.qcom.wifi.sh \
     init.qti.fm.sh \
-    init.qti.qseecomd.sh \
+    init.qti.ims.sh \
     qca6234-service.sh \
+    fstab.qcom \
     init.carrier.rc \
     init.msm.usb.configfs.rc \
     init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
     init.target.rc \
-    init.bloatware.rc \
-    fstab.qcom \
-    ueventd.qcom.rc \
-    init.wifi.rc 
+    init.wifi.rc \
+    ueventd.rc 
+
 
 #TODO	
 # RenderScript HAL
@@ -376,6 +392,7 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0 \
     libjson \
     librmnetctl \
+    libxml \
     libxml2 \
     libprotobuf-cpp-full 
 # Net
@@ -411,6 +428,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.thermal@1.0-impl \
     android.hardware.thermal@1.0-service
+    
+PRODUCT_COPY_FILES += \
+ $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
+
 #TODO	
 # USB HAL
 PRODUCT_PACKAGES += \
@@ -440,7 +461,10 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0 \
     android.hardware.wifi@1.1 \
     android.hardware.wifi.supplicant@1.0 \
-    android.hardware.wifi.offload@1.0
+    android.hardware.wifi.offload@1.0     
+
+#    vendor.qti.hardware.wifi.hostapd@1.0 \
+#    vendor.qti.hardware.wifi.supplicant@1.0
 
 # Wi-Fi HIDL
 PRODUCT_PACKAGES += \
@@ -464,6 +488,8 @@ PRODUCT_PACKAGES += \
 # VNDK
 PRODUCT_PACKAGES += \
     libstdc++.vendor
+
+
 
 # Treble
 PRODUCT_USE_VNDK_OVERRIDE := false

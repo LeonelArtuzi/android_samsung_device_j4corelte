@@ -1,7 +1,0 @@
-allow hal_ir_client hal_ir_hwservice:hwservice_manager { find };
-allow hal_keymaster_client hal_keymaster_server:binder { call transfer };
-allow hal_keymaster_server hal_keymaster_client:binder { transfer };
-allow hal_keymaster_client hal_keymaster_server:fd { use };
-allow hal_keymaster_server hal_keymaster_hwservice:hwservice_manager { add find };
-allow hal_keymaster_server hidl_base_hwservice:hwservice_manager { add };
-allow hal_keymaster_hwservice hal_keymaster_hwservice:hwservice_manager { add };

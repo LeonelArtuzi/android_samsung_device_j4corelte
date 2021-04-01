@@ -1085,13 +1085,13 @@
         <ctl name="ADC1 Volume" value="4" />
     </path>
 
-   <path name="camcorder-sub-mic">
+   <path name="camcorder-main-mic">
         <path name="main-mic" />
         <ctl name="DEC1 Volume" value="86" />
         <ctl name="ADC1 Volume" value="4" />
     </path>
 	
-    <path name="camcorder-main-mic">
+    <path name="camcorder-sub-mic">
         <path name="main-mic" />
         <ctl name="DEC1 Volume" value="86" />
         <ctl name="ADC1 Volume" value="4" />

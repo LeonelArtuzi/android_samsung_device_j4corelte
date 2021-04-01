@@ -50,16 +50,11 @@ on fs
     wait /dev/block/bootdevice/by-name/cache
     mount ext4 /dev/block/bootdevice/by-name/cache /cache nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
 
-    chown root system /persist
     wait /dev/block/bootdevice/by-name/persist
-    mkdir /persist 0771 system system
-#   mount ext4 /dev/block/bootdevice/by-name/persist /mnt/vendor/persist nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic
-#    mount ext4 /dev/block/bootdevice/by-name/persist /persist nosuid nodev noatime noauto_da_alloc,discard,journal_checksum,data=ordered,errors=panic
     mount ext4 /dev/block/bootdevice/by-name/persist /persist noatime nosuid nodev barrier=1
-   mkdir /persist/rfs 0700 system system
-    mkdir /persist/data 0700 system system
+    mkdir /persist/data 0700  system system
     mkdir /persist/bms 0700 root system
-    restorecon_recursive /persist
+    restorecon_recursive   /persist
 
     wait /dev/block/bootdevice/by-name/efs
     mount ext4 /dev/block/bootdevice/by-name/efs /efs nosuid nodev noatime noauto_da_alloc,discard,journal_async_commit,errors=panic

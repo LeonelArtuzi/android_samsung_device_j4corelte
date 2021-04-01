@@ -93,7 +93,7 @@ BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
 USE_XML_AUDIO_POLICY_CONF := 1
 AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
-
+#TARGET_AUDIOHAL_VARIANT := samsung
 AUDIO_FEATURE_SAMSUNG_DUAL_SIM := true
 
 # Bluetooth
@@ -110,12 +110,22 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 
 # Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-  endif
-endif
+#ifeq ($(HOST_OS),linux)
+#  ifneq ($(TARGET_BUILD_VARIANT),eng)
+#    WITH_DEXPREOPT ?= true
+#    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
+#  endif
+#endif
+
+
+
+# Charger
+BOARD_CHARGER_ENABLE_SUSPEND := true
+#BOARD_CHARGER_SHOW_PERCENTAGE := true
+
+
+# Dexpreopt To lower the first boot time
+WITH_DEXPREOPT := true
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
@@ -151,7 +161,7 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/dsp:/dsp \
     /vendor/firmware_mnt:/firmware \
-    /mnt/vendor/persist:/persist
+    /vendor/persist:/persist
 
 # Graphics
 BOARD_USES_ADRENO := true
@@ -163,8 +173,9 @@ TARGET_USES_COLOR_METADATA := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-USE_OPENGL_RENDERER := true
-TARGET_BOOTANIMATION_HALF_RES := true
+#USE_OPENGL_RENDERER := true
+#TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_HAS_WIDE_COLOR_DISPLAY := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT :=true
@@ -178,7 +189,8 @@ TARGET_PER_MGR_ENABLED := true
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 
-
+#Audio primary
+#BOARD_PROVIDES_LIBAUDIO := true
 
 # Root
 BOARD_ROOT_EXTRA_FOLDERS := config omr efs bt_firmware
@@ -205,16 +217,22 @@ BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
 
 # OTA Assert
-TARGET_OTA_ASSERT_DEVICE :=j4corelte,j4corelte_mea_open,j4Corelte,j4coreub
-
-# LPM Battery Percentage
-BOARD_CHARGER_SHOW_PERCENTAGE := true
+TARGET_OTA_ASSERT_DEVICE :=j4corelte,j4corelte_mea_open,j4Corelte,j4coreub, j4coreux
 
 # Power
 TARGET_USES_NON_LEGACY_POWERHAL := true
 
+
+# Reduce system image size by limiting java debug info.
+#PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+
+# Speed profile services and wifi-service to reduce RAM and storage.
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
+
 # WiFi
 BOARD_HAS_QCOM_WLAN := true
+#BOARD_HAS_QCOM_WLAN_SDK := true
 BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
 BOARD_WLAN_DEVICE := qcwcn
@@ -227,7 +245,6 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_HAVE_SAMSUNG_WIFI := true
-
 
 
 

@@ -14,6 +14,6 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/rr_j4corelte.mk
+    $(LOCAL_DIR)/lineage_j4corelte.mk
 
 
