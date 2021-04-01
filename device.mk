@@ -58,8 +58,6 @@ PRODUCT_PACKAGES += \
     android.hardware.soundtrigger@2.0-impl
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-    $(LOCAL_PATH)/audio/audio_effects_sec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_sec.xml \
     $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_effects_common.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_common.conf \
     $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
@@ -295,11 +293,10 @@ PRODUCT_PACKAGES += \
     power.qcom
 
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    android.hardware.power@1.0-service
+    android.hardware.power@1.1-service-qti
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+    $(LOCAL_PATH)/configs/powerhint.xml:system/etc/powerhint.xml
 
 # Preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
@@ -310,7 +307,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.msm8937.so \
+    lights.msm8937 \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
