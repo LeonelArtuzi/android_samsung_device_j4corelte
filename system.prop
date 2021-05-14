@@ -1,0 +1,3 @@
+# Import EFS Properities
+import /efs/factory.prop
+rild.libargs=-d /dev/umts_ipc0
