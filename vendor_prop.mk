@@ -99,7 +99,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.downgrade_pressure=100 \
     ro.config.tune_fha=true \
     ro.config.bg_apps_limit=12 \
-    ro.kernel.qemu=1
+    ro.kernel.qemu=1 \
+    ro.config.low_ram=false
 
 # Force Trim Half Cached apps
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -112,6 +113,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bservice Propogation Enable
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.bservice_enable=true
+
+# Memory optimizations
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.qti.sys.fw.bservice_enable=true \
+    ro.vendor.qti.sys.fw.bservice_limit=5 \
+    ro.vendor.qti.sys.fw.bservice_age=5000
+
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
