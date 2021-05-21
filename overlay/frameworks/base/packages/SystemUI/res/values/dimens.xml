@@ -1,3 +1,12 @@
 <resources>
     <dimen name="rounded_corner_content_padding">0.0dip</dimen>
+     
+    
+
+     
+    <dimen name="qs_tile_layout_margin_side">6dp</dimen>
+    <dimen name="qs_tile_margin_horizontal">8dp</dimen>
+    <dimen name="qs_tile_margin_vertical">12dp</dimen>
+    <dimen name="qs_tile_margin_top_bottom">12dp</dimen>
+    
 </resources>
