@@ -166,8 +166,8 @@ PRODUCT_PACKAGES += \
 
 
 # Ambient display
-PRODUCT_PACKAGES += \
-    msm8917Doze
+#PRODUCT_PACKAGES += \
+#    msm8917Doze
 
 # Display calibration
 PRODUCT_PACKAGES += \
@@ -305,8 +305,9 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.qcom \
+    android.hardware.power@1.2-impl \
     android.hardware.power@1.2-service-qti
+#    power.qcom \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.xml:system/etc/powerhint.xml
