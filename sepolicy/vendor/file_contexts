@@ -143,3 +143,5 @@
 /sys/devices/virtual/lcd/panel(/.*)?                            u:object_r:sysfs_lcd_writable:s0
 /sys/devices/virtual/mdnie(/.*)?                            --  u:object_r:sysfs_mdnie_writable:s0
 /sys/devices/virtual/sec/tsp(/.*)?                              u:object_r:sysfs_tsp:s0
+# FPS Info
+/sys/devices/virtual/graphics/fb0/measured_fps                u:object_r:sysfs_fps:s0
