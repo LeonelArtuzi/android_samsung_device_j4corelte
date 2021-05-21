@@ -14,7 +14,7 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_j4corelte.mk
+    $(LOCAL_DIR)/rr_j4corelte.mk
 COMMON_LUNCH_CHOICES := \
-    lineage_j4corelte-eng \
-    lineage_j4corelte-userdebug
+    rr_j4corelte-eng \
+    rr_j4corelte-userdebug
