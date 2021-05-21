@@ -43,3 +43,6 @@ type sysfs_fpc, fs_type, sysfs_type;
 type sysfs_lcd_writable, fs_type, sysfs_type;
 type sysfs_mdnie_writable, fs_type, sysfs_type;
 type sysfs_tsp, fs_type, sysfs_type;
+
+# FPS Info
+type sysfs_fps, sysfs_type, fs_type; 
