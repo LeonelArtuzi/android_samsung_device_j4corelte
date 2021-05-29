@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="rounded_corner_content_padding">0.0dip</dimen>
      
@@ -5,6 +6,7 @@
    
     <dimen name="status_bar_padding_start">3dp</dimen>
     <dimen name="status_bar_padding_end">3dp</dimen>
-    <dimen name="qs_header_tile_margin_horizontal">2dp</dimen>
+    <dimen name="qs_header_tile_margin_horizontal">0dp</dimen>
     
+    <dimen name="qs_quick_tile_padding">24dp</dimen>
 </resources>
