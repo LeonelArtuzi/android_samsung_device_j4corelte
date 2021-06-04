@@ -1192,10 +1192,34 @@
          is true (in that case this is assumed true as well).  It can allow you to tune down
          your device's memory use without going to the point of causing applications to turn
          off features. -->
-    <bool name="config_avoidGfxAccel">false</bool>
+    <bool name="config_avoidGfxAccel">true</bool>
     
     <!-- If device supports corner radius on windows.
          This should be turned off on low-end devices to improve animation performance. -->
-    <bool name="config_supportsRoundedCornersOnWindows">true</bool>
+    <bool name="config_supportsRoundedCornersOnWindows">false</bool>
 
+
+    <!-- Flag indicating whether we should enable the adaptive sleep.-->
+    <bool name="config_adaptive_sleep_available">true</bool>
+
+   <!-- Enable AOD even tho we dont have amoled display -->
+   <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+   <bool name="config_displayBlanksAfterDoze">true</bool>
+
+   <bool name="config_powermenuadvanceddefault">true</bool>
+
+    <!-- Flag indicating whether the surface flinger is inefficient
+         at performing a blur.  Used by parts of the UI to turn off
+         the blur effect where it isn't worth the performance hit.
+         As of Honeycomb, blurring is not supported anymore. -->
+    <bool name="config_sf_slowBlur">false</bool>
+    
+
+    
+    
+    <!-- Feature flag to enable memory efficient task snapshots that are used in recents optimized
+         for low memory devices and replace the app transition starting window with the splash
+         screen. -->
+    <bool name="config_lowRamTaskSnapshotsAndRecents">true</bool>
+    
 </resources>
