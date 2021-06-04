@@ -212,10 +212,7 @@
         <interface>
             <name>IPower</name>
             <instance>default</instance>
-            <instance>miscpower</instance>
         </interface>
-        <fqname>@1.2::IPower/default</fqname>
-        <fqname>@1.0::IPower/miscpower</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>android.hardware.radio</name>
