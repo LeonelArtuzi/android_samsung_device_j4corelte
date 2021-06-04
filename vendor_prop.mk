@@ -99,7 +99,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.downgrade_pressure=100 \
     ro.config.tune_fha=true \
     ro.config.bg_apps_limit=12 \
-    ro.kernel.qemu=1
+    ro.kernel.qemu=1 \
+    ro.config.low_ram=false
 
 # Force Trim Half Cached apps
 PRODUCT_PROPERTY_OVERRIDES += \
