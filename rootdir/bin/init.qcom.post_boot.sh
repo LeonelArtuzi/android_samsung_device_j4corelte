@@ -2080,8 +2080,15 @@ case "$target" in
                 #disable sched_boost in 8917
                 echo 0 > /proc/sys/kernel/sched_boost
 
-		# core_ctl is not needed for 8917. Disable it.
-		echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/disable
+		# core_ctl  for 8917. 
+		echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/disable
+		echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/is_big_cluster          
+		echo 1 > /sys/devices/system/cpu/cpu0/core_ctl/min_cpus
+        echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/max_cpus
+        echo 68 > /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres
+        echo 40 > /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres
+        echo 100 > /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms
+        echo 4 > /sys/devices/system/cpu/cpu0/core_ctl/task_thres
 
                 for devfreq_gov in /sys/class/devfreq/qcom,mincpubw*/governor
                 do
