@@ -143,7 +143,7 @@ function 8917_sched_dcvs_hmp()
     echo 20000 > /sys/devices/system/cpu/cpufreq/interactive/timer_rate
     echo 1094400 > /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq
     echo 0 > /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
-    echo "1 960000:85 1094400:90" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
+    echo "1 200000:65 960000:85 1094400:90" > /sys/devices/system/cpu/cpufreq/interactive/target_loads
     echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/min_sample_time
     echo 40000 > /sys/devices/system/cpu/cpufreq/interactive/sampling_down_factor
 
@@ -2125,7 +2125,9 @@ case "$target" in
                 else
                     8917_sched_dcvs_hmp
                 fi
-                echo 960000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+                echo 200000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+                echo 1401000 >/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+                
                 # re-enable thermal core_control now
                 echo 1 > /sys/module/msm_thermal/core_control/enabled
 
