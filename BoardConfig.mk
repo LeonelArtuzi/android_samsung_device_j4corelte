@@ -113,12 +113,8 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
     /system/vendor/bin/mm-qcamera-daemon=27
 
 # Dex
-ifeq ($(HOST_OS),linux)
-  ifneq ($(TARGET_BUILD_VARIANT),eng)
-    WITH_DEXPREOPT ?= true
-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
-  endif
-endif
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 
 # DT2W
 TARGET_TAP_TO_WAKE_NODE := "/sys/android_touch/doubletap2wake"

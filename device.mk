@@ -465,5 +465,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libbase_shim
 
+
+# Preopt
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Settings \
+    Snap \
+    SystemUI \
+    TrebuchetQuickSteps
+
+
 # Inherit vendor
 $(call inherit-product, vendor/samsung/j4corelte/j4corelte-vendor.mk)
