@@ -1199,12 +1199,12 @@
     <bool name="config_supportsRoundedCornersOnWindows">false</bool>
 
 
-    <!-- Flag indicating whether we should enable the adaptive sleep.-->
-    <bool name="config_adaptive_sleep_available">true</bool>
+    <!-- Flag indicating whether we should enable the adaptive sleep
+    <bool name="config_adaptive_sleep_available">true</bool>.-->
 
-   <!-- Enable AOD even tho we dont have amoled display -->
+   <!-- Enable AOD even tho we dont have amoled display
    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
-   <bool name="config_displayBlanksAfterDoze">true</bool>
+   <bool name="config_displayBlanksAfterDoze">true</bool> -->
 
    <bool name="config_powermenuadvanceddefault">true</bool>
 
@@ -1212,7 +1212,7 @@
          at performing a blur.  Used by parts of the UI to turn off
          the blur effect where it isn't worth the performance hit.
          As of Honeycomb, blurring is not supported anymore. -->
-    <bool name="config_sf_slowBlur">false</bool>
+    <bool name="config_sf_slowBlur">true</bool>
     
 
     
