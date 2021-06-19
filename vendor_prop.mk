@@ -16,6 +16,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.enc.narrow.searchrange=1 \
     persist.vendor.qti.telephony.vt_cam_interface=1 \
     vendor.hw.fm.init=0 \
+    ro.control_privapp_permissions=enforce \
+    ro.config.max_snapshot_num=1 \
+    ro.config.enable_upgrade_criadj=true
+
+#power
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.power.pasr.enabled=true
 
 #Perf(ormace) d(eamon)
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -34,6 +41,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=0 \
     debug.sf.latch_unsignaled=1 \
     sdm.debug.disable_skip_validate=1 \
+    vendor.gralloc.enable_fb_ubwc=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1 \
     persist.demo.hdmirotationlock=false \
@@ -42,7 +50,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     sys.disable_ext_animation=1 \
     qemu.hw.mainkeys=0 \
     persist.hwc.enable_vds=1 \
-    ro.kernel.qemu.gles=2
+    ro.kernel.qemu.gles=2 \
+    persist.sys.factory.bcontrol=2
 
 
 #Dalvik
@@ -60,21 +69,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #DHA Tune 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cfg.dha_2ndprop_thMB=2048 \
-    ro.cfg.dha_cached_max=10 \
-    ro.cfg.dha_empty_init=20 \
-    ro.cfg.dha_empty_max=20 \
-    ro.config.add_bonusEFK=2 \
-    ro.config.dha_cached_max=5 \
-    ro.config.dha_cached_min=2 \
-    ro.config.dha_empty_init=14 \
-    ro.config.dha_empty_max=14 \
-    ro.config.dha_empty_min=4 \
-    ro.config.dha_lmk_scale=0.545 \
-    ro.config.dha_pwhitelist_enable=1 \
-    ro.config.dha_pwhl_key=513 \
-    ro.config.dha_th_rate=2.5 \
-    ro.config.v_bonusEFK=20480
+    ro.config.add_bonusEFK=1 \
+    ro.config.dha_cached_min=1 \
+    ro.config.dha_cached_max=2 \
+    ro.config.dha_empty_min=2 \
+    ro.config.dha_empty_max=6 \
+    ro.config.dha_empty_init=6 \
+    ro.config.dha_lmk_scale=0.273 \
+    ro.config.dha_th_rate=0.9 \
+    ro.cfg.dha_2ndprop_thMB=1024 \
+    ro.cfg.dha_cached_max=4 \
+    ro.cfg.dha_empty_max=9 \
+    ro.cfg.dha_empty_init=9 \
 
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -87,6 +93,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_gl_app_phase_offset_ns=15000000
 
 
+#stagefright
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0
 
 #lmk
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -100,7 +110,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.config.tune_fha=true \
     ro.config.bg_apps_limit=12 \
     ro.kernel.qemu=1 \
-    ro.config.low_ram=false
+    ro.config.low_ram=false \
+    ro.cfg.enable_userspace_lmk=true \
+    ro.cfg.enable_reentry_lmk=true \
+    ro.cfg.custom_tm_limit=1000 \
+    ro.config.freelimit_val=15 \
+    ro.config.custom_sw_limit=400 \
+    ro.config.upgrade_pressure=60 \
+    ro.cfg.freelimit_val=15 \
+    ro.cfg.custom_sw_limit=350  \
+    ro.cfg.upgrade_pressure=60
 
 # Force Trim Half Cached apps
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -123,6 +142,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.max_snapshot_num=1 \
     persist.camera.gyro.android=1 \
     persist.camera.is_type=1 \
     ro.config.max_snapshot_num=1 \
@@ -170,7 +190,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.voice.playback.conc.disabled=true \
     vendor.voice.record.conc.disabled=false \
     vendor.mediacodec.binder.size=4 \
-    vendor.vidc.disable.split.mode=1 
+    vendor.vidc.disable.split.mode=1  \
+    vendor.voice.path.for.pcm.voip=true \
+    vendor.voice.voip.conc.disabled=true
 
 
 #Security
@@ -178,12 +200,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.gatekeeper=mdfpp \
     ro.hardware.keystore=mdfpp \
     ro.security.keystore.keytype=sak,gak \
-    ro.security.vpnpp.release=2.0 \
+    ro.security.vpnpp.release=3.0 \
     ro.security.vpnpp.ver=2.1 \
     security.ASKS.policy_version=000000 \
     security.mdpp.mass=skmm \
     ro.build.scafe.version=2019A \
-    keyguard.no_require_sim=true
+    keyguard.no_require_sim=true \
+    ro.frp.pst=/dev/block/persistent \
+    ro.security.cass.feature=1 \
+    security.securehw.available=false \
+    security.securenvm.available=false \
+    ro.vendor.build.version.sehi=2901
 
 #RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -200,10 +227,32 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.sec.rild.libpath2=/vendor/lib/libsec-ril-dsds.so \
     vendor.sec.rild.libpath=/vendor/lib/libsec-ril.so \
     ro.hdcp2.rx=tz \
-    ro.multisim.simslotcount=2
+    ro.multisim.simslotcount=2 \
+    ro.telephony.iwlan_operation_mode=legacy \
+    persist.vendor.radio.procedure_bytes=SKIP
 
 #Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=pronto \
     persist.vendor.qcom.bluetooth.enable.splita2dp=false \
     ro.vendor.bluetooth.wipower=false
+
+
+
+#apex
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.apex.updatable=false
+
+    #HWUI properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hwui.texture_cache_size=72 \
+    ro.hwui.layer_cache_size=48 \
+    ro.hwui.r_buffer_cache_size=8 \
+    ro.hwui.path_cache_size=32 \
+    ro.hwui.gradient_cache_size=1 \
+    ro.hwui.drop_shadow_cache_size=6 \
+    ro.hwui.texture_cache_flushrate=0.4 \
+    ro.hwui.text_small_cache_width=1024 \
+    ro.hwui.text_small_cache_height=1024 \
+    ro.hwui.text_large_cache_width=2048 \
+    ro.hwui.text_large_cache_height=2048

@@ -1,3 +1,9 @@
+<!--
+    Input:
+        compatibility_matrix.xml
+        device_compatibility_matrix.xml
+        device_compatibility_matrix.xml
+-->
 <compatibility-matrix version="1.0" type="device">
     <hal format="hidl" optional="false">
         <name>android.frameworks.schedulerservice</name>
@@ -13,6 +19,14 @@
         <interface>
             <name>ISensorManager</name>
             <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>android.hardware.camera.provider</name>
+        <version>2.5</version>
+        <interface>
+            <name>ICameraProvider</name>
+            <instance>legacy/0</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="false">
@@ -56,11 +70,35 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.samsung.frameworks.ucm.wifi</name>
+        <name>vendor.qti.hardware.sigma_miracast</name>
         <version>1.0</version>
         <interface>
-            <name>IUCMKeystore</name>
+            <name>Isigma_miracast</name>
+            <instance>sigmahal</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.samsung.frameworks.security.dsms</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISehDsms</name>
             <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.samsung.frameworks.security.ucm.crypto</name>
+        <version>1.0</version>
+        <interface>
+            <name>ISehUcmKeystore</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.samsung.hardware.camera.provider</name>
+        <version>3.0</version>
+        <interface>
+            <name>ISehCameraProvider</name>
+            <instance>legacy/0</instance>
         </interface>
     </hal>
 </compatibility-matrix>

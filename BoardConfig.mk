@@ -49,8 +49,8 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01e00000
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := j4corelte_los_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/android_kernel_samsung_msm8917_64
+TARGET_KERNEL_CONFIG := j4corelte_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/projeto_medusa
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 ARCH_ARM_HAVE_NEON := true
 
@@ -188,7 +188,7 @@ BOARD_PROVIDES_LIBRIL := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Malloc
-MALLOC_SVELTE := true
+# MALLOC_SVELTE := true
 
 # HWUI
 HWUI_COMPILE_FOR_PERF := true
